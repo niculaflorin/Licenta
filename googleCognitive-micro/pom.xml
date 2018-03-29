@@ -356,6 +356,11 @@
             <artifactId>spring-security-data</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-language</artifactId>
+			<version>1.14.0</version>
+		</dependency>
     </dependencies>
 
     <build>
@@ -552,9 +557,9 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost:5432/googleCognitive</url>
+                    <url>jdbc:postgresql://licenta2.cxaq7phhynfu.us-east-2.rds.amazonaws.com/googleSentiment</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username>googleCognitive</username>
+                    <username>qwghcvas94</username>
                     <password></password>
                     <referenceUrl>hibernate:spring:com.google.cognitive.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                     <verbose>true</verbose>

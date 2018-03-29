@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sentence",
+            "otherEntityName": "sentencesSentiment",
+            "otherEntityRelationshipName": "documentSentiment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "magnitude",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "language",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180319164624",
+    "entityTableName": "document_sentiment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "googleCognitive"
+}

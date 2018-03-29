@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SentencesSentiment.
+    -->
+    <changeSet id="20180319164625-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="document_sentiment_id"
+                                 baseTableName="sentences_sentiment"
+                                 constraintName="fk_sentences_sentiment_document_sentiment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_sentiment"/>
+
+    </changeSet>
+</databaseChangeLog>

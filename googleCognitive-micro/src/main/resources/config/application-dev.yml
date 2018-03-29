@@ -33,9 +33,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://localhost:5432/googleCognitive
-        username: googleCognitive
-        password:
+        url: jdbc:postgresql://licenta2.cxaq7phhynfu.us-east-2.rds.amazonaws.com/googleSentiment
+        username: postegres
+        password: qwghcvas94
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL

@@ -1,0 +1,39 @@
+
+<div *ngIf="sentencesSentiment">
+    <h2><span>Sentences Sentiment</span> {{sentencesSentiment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Content</span></dt>
+        <dd>
+            <span>{{sentencesSentiment.content}}</span>
+        </dd>
+        <dt><span>Magnitude</span></dt>
+        <dd>
+            <span>{{sentencesSentiment.magnitude}}</span>
+        </dd>
+        <dt><span>Score</span></dt>
+        <dd>
+            <span>{{sentencesSentiment.score}}</span>
+        </dd>
+        <dt><span>Document Sentiment</span></dt>
+        <dd>
+            <div *ngIf="sentencesSentiment.documentSentiment">
+                <a [routerLink]="['/document-sentiment', sentencesSentiment.documentSentiment?.id]">{{sentencesSentiment.documentSentiment?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sentences-sentiment/'+ sentencesSentiment.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

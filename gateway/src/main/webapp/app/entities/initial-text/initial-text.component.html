@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span>Initial Texts</span>
+        <button class="btn btn-primary float-right jh-create-entity create-initial-text" [routerLink]="['/', { outlets: { popup: ['initial-text-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down" >
+            Create new Initial Text
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="Query">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="initialTexts">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Text</span></th>
+            <th><span>User Id</span></th>
+            <th><span>Initial</span></th>
+            <th><span>Subject</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let initialText of initialTexts ;trackBy: trackId">
+                <td><a [routerLink]="['../initial-text', initialText.id ]">{{initialText.id}}</a></td>
+                <td>{{initialText.text}}</td>
+                <td>{{initialText.userId}}</td>
+                <td>
+                    <div *ngIf="initialText.initial">
+                        <a [routerLink]="['../document-sentiment', initialText.initial?.id ]" >{{initialText.initial?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="initialText.subject">
+                        <a [routerLink]="['../subject', initialText.subject?.id ]" >{{initialText.subject?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../initial-text', initialText.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'initial-text/'+ initialText.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'initial-text/'+ initialText.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

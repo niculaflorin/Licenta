@@ -1,7 +1,8 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.gateway.app"
+      "packageName": "com.gateway.app",
+      "microservicePath": "../googleCognitive-micro"
     },
     "jhipsterVersion": "4.11.0",
     "baseName": "gateway",

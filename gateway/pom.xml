@@ -236,6 +236,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>42.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -573,10 +574,10 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://localhost:5432/gateway</url>
+                    <url>jdbc:postgresql://licenta2.cxaq7phhynfu.us-east-2.rds.amazonaws.com/gateway</url>
                     <defaultSchemaName></defaultSchemaName>
-                    <username>gateway</username>
-                    <password></password>
+                    <username>postegres</username>
+                    <password>qwghcvas94</password>
                     <referenceUrl>hibernate:spring:com.gateway.app.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>

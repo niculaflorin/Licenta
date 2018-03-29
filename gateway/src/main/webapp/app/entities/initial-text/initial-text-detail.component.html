@@ -1,0 +1,41 @@
+
+<div *ngIf="initialText">
+    <h2><span>Initial Text</span> {{initialText.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Text</span></dt>
+        <dd>
+            <span>{{initialText.text}}</span>
+        </dd>
+        <dt><span>User Id</span></dt>
+        <dd>
+            <span>{{initialText.userId}}</span>
+        </dd>
+        <dt><span>Initial</span></dt>
+        <dd>
+            <div *ngIf="initialText.initial">
+                <a [routerLink]="['/document-sentiment', initialText.initial?.id]">{{initialText.initial?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Subject</span></dt>
+        <dd>
+            <div *ngIf="initialText.subject">
+                <a [routerLink]="['/subject', initialText.subject?.id]">{{initialText.subject?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'initial-text/'+ initialText.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
