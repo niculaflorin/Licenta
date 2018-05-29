@@ -1,14 +1,17 @@
 package com.google.cognitive.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.google.cognitive.com.google.cognitive.cloud.api.GoogleAPIService;
 import com.google.cognitive.domain.InitialText;
 
+import com.google.cognitive.repository.DocumentSentimentRepository;
 import com.google.cognitive.repository.InitialTextRepository;
 import com.google.cognitive.web.rest.errors.BadRequestAlertException;
 import com.google.cognitive.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +34,16 @@ public class InitialTextResource {
 
     private final InitialTextRepository initialTextRepository;
 
+    @Autowired
+    private GoogleAPIService googleAPIService;
+
+//    private DocumentSentimentRepository documentSentimentRepository;
+//
+//    public InitialTextResource(InitialTextRepository initialTextRepository, DocumentSentimentRepository documentSentimentRepository) {
+//        this.initialTextRepository = initialTextRepository;
+//        this.documentSentimentRepository = documentSentimentRepository;
+//    }
+
     public InitialTextResource(InitialTextRepository initialTextRepository) {
         this.initialTextRepository = initialTextRepository;
     }
@@ -49,7 +62,8 @@ public class InitialTextResource {
         if (initialText.getId() != null) {
             throw new BadRequestAlertException("A new initialText cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        InitialText result = initialTextRepository.save(initialText);
+        InitialText parsedText = googleAPIService.parseInitialText(initialText);
+        InitialText result = initialTextRepository.save(parsedText);
         return ResponseEntity.created(new URI("/api/initial-texts/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);

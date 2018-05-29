@@ -33,8 +33,8 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://licenta2.cxaq7phhynfu.us-east-2.rds.amazonaws.com/googleSentiment
-        username: postegres
+        url: jdbc:postgresql://licenta.cxaq7phhynfu.us-east-2.rds.amazonaws.com/googleSentiment
+        username: postgres
         password: qwghcvas94
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect

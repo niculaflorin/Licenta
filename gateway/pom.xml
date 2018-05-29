@@ -574,7 +574,7 @@
                     <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                     <driver>org.postgresql.Driver</driver>
-                    <url>jdbc:postgresql://licenta2.cxaq7phhynfu.us-east-2.rds.amazonaws.com/gateway</url>
+                    <url>jdbc:postgresql://licenta.cxaq7phhynfu.us-east-2.rds.amazonaws.com/gateway</url>
                     <defaultSchemaName></defaultSchemaName>
                     <username>postegres</username>
                     <password>qwghcvas94</password>
