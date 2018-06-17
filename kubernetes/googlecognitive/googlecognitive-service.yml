@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: googlecognitive
+  namespace: default
+  labels:
+    app: googlecognitive
+spec:
+  selector:
+    app: googlecognitive
+  ports:
+  - name: web
+    port: 8081

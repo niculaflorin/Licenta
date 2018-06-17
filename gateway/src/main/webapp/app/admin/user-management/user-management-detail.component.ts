@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Injectable} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
@@ -12,6 +12,7 @@ export class UserMgmtDetailComponent implements OnInit, OnDestroy {
 
     user: User;
     private subscription: Subscription;
+    userLogged: number;
 
     constructor(
         private userService: UserService,
@@ -28,11 +29,14 @@ export class UserMgmtDetailComponent implements OnInit, OnDestroy {
     load(login) {
         this.userService.find(login).subscribe((user) => {
             this.user = user;
+            this.userLogged = user.id;
         });
     }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
+
+
 
 }

@@ -12,7 +12,7 @@
         <dd>
             <span>{{initialText.userId}}</span>
         </dd>
-        <dt><span>Initial</span></dt>
+        <dt><span>DocumentId</span></dt>
         <dd>
             <div *ngIf="initialText.initial">
                 <a [routerLink]="['/document-sentiment', initialText.initial?.id]">{{initialText.initial?.id}}</a>

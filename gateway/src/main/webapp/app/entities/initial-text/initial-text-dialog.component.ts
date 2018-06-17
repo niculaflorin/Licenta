@@ -21,6 +21,7 @@ export class InitialTextDialogComponent implements OnInit {
 
     initialText: InitialText;
     isSaving: boolean;
+    userLogged: number;
 
     initials: DocumentSentiment[];
 
@@ -61,6 +62,7 @@ export class InitialTextDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
+        this.initialText.userId = this.userLogged;
         if (this.initialText.id !== undefined) {
             this.subscribeToSaveResponse(
                 this.initialTextService.update(this.initialText));
